@@ -1,0 +1,3 @@
+{
+    "DBConnectionString": "Server=.;Database=CS2Cookies;user=foo;password=bar;port=3306"
+}
