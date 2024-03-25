@@ -18,7 +18,8 @@ public class Cookie : ICookie
     }
 
     public async Task<string?> Get(CCSPlayerController player) {
-        if(player.AuthorizedSteamID == null) throw new InvalidOperationException("Attempted to get cookie for an unauthorized player.");
+        if(player == null) throw new ArgumentException("Attempted to read cookies on console.");
+        if(player.AuthorizedSteamID == null) throw new ArgumentException("Attempted to get cookie for an unauthorized player.");
 
         string steamid = player.AuthorizedSteamID.SteamId64.ToString();
 
@@ -40,7 +41,8 @@ public class Cookie : ICookie
     }
 
     public async void Set(CCSPlayerController player, string value) {
-        if(player.AuthorizedSteamID == null) throw new InvalidOperationException("Attempted to set cookie for an unauthorized player.");
+        if(player == null) throw new ArgumentException("Attempted to set cookies on console.");
+        if(player.AuthorizedSteamID == null) throw new ArgumentException("Attempted to set cookie for an unauthorized player.");
 
         string steamid = player.AuthorizedSteamID.SteamId64.ToString();
 
